@@ -27,6 +27,9 @@ Wrangler instead:
 
 ```bash
 npm run build
+```
+
+```bash
 npx wrangler pages dev dist --kv LINKS
 ```
 
