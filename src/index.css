@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --paper: #EEF0E9;
+  --paper-edge: #E2E5D9;
+  --ink: #1B2E28;
+  --ink-soft: #4A5850;
+  --stamp-red: #B23A2E;
+  --stamp-blue: #2B4C7E;
+  --line: #C9CDBC;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(27,46,40,0.07) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.font-mono-ticket {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Perforated ticket edge */
+.perf-edge {
+  position: relative;
+}
+.perf-edge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  width: 24px;
+  background-image: radial-gradient(circle 6px, var(--paper) 6px, transparent 6.5px);
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: repeat-y;
+}
+
+.stub-divider {
+  border: none;
+  border-top: 2px dashed var(--line);
+}
+
+@keyframes stamp-in {
+  0% { transform: scale(2.2) rotate(-14deg); opacity: 0; }
+  60% { transform: scale(0.95) rotate(-14deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-8deg); opacity: 1; }
+}
+.stamp-anim {
+  animation: stamp-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp-anim { animation: none; }
+}
